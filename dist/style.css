@@ -1,0 +1,19 @@
+*{
+    
+    text-align: center;
+}
+
+#manager{
+    background-color: rgb(31, 104, 230);
+}
+#card-body{
+    background-color: rgb(37, 178, 37);
+}
+h4{
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+h5{
+    text-align: left;
+}
