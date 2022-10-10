@@ -1,10 +1,12 @@
 *{
-    
-    text-align: center;
+   
+   text-align: center;
+   margin: 7px;
 }
 
 #manager{
     background-color: rgb(31, 104, 230);
+    
 }
 #card-body{
     background-color: rgb(37, 178, 37);
