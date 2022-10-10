@@ -103,6 +103,31 @@ const askQuestions =[
     default: false
 }
 ];
+
+const newEmployee = () => {
+    console.log(`Add new Employee`);
+
+    return inquirer.createPromptModule(askQuestions).then(employeeData =>{
+        let {name, id, email, github, role, school, officeNumber}= employeeData;
+        let employee;
+        if(role ==='Manager'){
+            employee = new Manager(name, id, email, officeNumber);
+        }
+        if (role ==='Engineer'){
+            employee = new Engineer(name, id, github, email)
+        }
+        if (role === 'intern'){
+            employee = new Intern(name, school, id, email)
+        }
+        empArray.push(employee);
+        if(employeeData.confirmAddEmployee){
+            return promptEmployee(empArray);
+        } else {
+            return empArray;
+        }
+    }
+    )
+};
         
 
 
