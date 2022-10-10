@@ -1,3 +1,5 @@
+const Manager = require("../lib/Manager")
+
 const HTMLpage = mergedTeam =>{
     return`
     <!doctype html>
@@ -29,9 +31,35 @@ const HTMLpage = mergedTeam =>{
 
 
 
-const managerHTML= => {
+const managerHTML= manager => {
   return `
-  
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Manager
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name:${manager.name}</li>
+    <li class="list-group-item">Employee id: ${manager.id}</li>
+    <li class="list-group-item">Email: <a href="mail to:${manager.email}">${manager.email}</a></li>
+    <li class="list-group-item">Office NUmber: ${manager.officeNumber}</li>
+  </ul>
+</div>
+  `
+}
+
+const engineerHTML= engineer => {
+  return `
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  Engineer
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name:${engineer.name}</li>
+    <li class="list-group-item">Employee id: ${engineer.id}</li>
+    <li class="list-group-item">Email: <a href="mail to:${engineer.email}">${engineer.email}</a></li>
+    <li class="list-group-item"><a href=""></a></li>
+  </ul>
+</div>
   `
 }
 
