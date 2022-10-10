@@ -103,11 +103,12 @@ const askQuestions =[
     default: false
 }
 ];
-
+// creating new function to add new employee
 const newEmployee = () => {
-    console.log(`Add new Employee`);
+    console.log(`Add Employee`);
 
-    return inquirer.createPromptModule(askQuestions).then(employeeData =>{
+    return inquirer.Prompt(askQuestions)
+    .then(employeeData =>{
         let {name, id, email, github, role, school, officeNumber}= employeeData;
         let employee;
         if(role ==='Manager'){
@@ -121,14 +122,14 @@ const newEmployee = () => {
         }
         empArray.push(employee);
         if(employeeData.confirmAddEmployee){
-            return promptEmployee(empArray);
+            return newEmployee(empArray);
         } else {
             return empArray;
         }
     }
     )
 };
-
+// adding write file and attaching it to index.html
 const writeFile =fileContent => {
     fs.writeFile('./dist/index.html', fileContent, err => {
         if (err){
@@ -140,6 +141,13 @@ const writeFile =fileContent => {
     });
 };
 
+
+newEmployee().then(empArray => {
+    return writeFile(pageHtml);
+})
+.catch(err => {
+    console.log(err);
+});
         
 
 
