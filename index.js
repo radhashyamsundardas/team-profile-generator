@@ -1,6 +1,114 @@
- const fs = require("fs");
- const enquirer = require("inquirer");
- const employee = require("./lib/Employee");
- const manager = require("./lib/Manager");
- const engineer = require("./lib/Engineer");
- const intern = inquire("./lib/intern");
+const inquirer = require('inquirer');
+ const fs = require('fs');
+const Manager = require("./lib/Manager.js");
+const Engineer = require("./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
+const log = require('console');
+ 
+
+const empArray = [];
+
+//  creating array of questions to ask 
+
+const askQuestions =[
+    {
+        type:'list',
+        name:'role',
+        message:'choose the role of the employee',
+        choices:["Manager","Engineer","Intern"]
+    },
+    {
+        type:'input',
+        name:'name',
+        message:'Please enter name of the employee?',
+        validate: nameInput=>{
+            if (nameInput){
+                return true;
+            } else{
+                console.log("Enter name of the employee");
+                return false;
+            }
+        }
+    },
+    {
+        type:'input',
+        name:'id',
+        message:'Please enter the id number of the employee!',
+        validate: idInput=>{
+            if(idInput){
+                return true;
+            } else{
+                console.log("Enter employee id number");
+                return false;
+            }
+        }
+    },
+    {
+        type:'input',
+        name:'email',
+        message:'Enter employee Email address',
+        validate: emailInput => {
+            if (emailInput.includes('@')){
+                return true;
+            } else {
+                console.log('Please enter your email address');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: 'Enter office number',
+        validate: (officeNumberInput) => {
+            if (officeNumber){
+                return true;
+            } else {
+                console.log('Enter office number');
+                return false;
+            }
+        }
+    },
+    {
+        type:'input',
+        name:'github',
+        message: 'Enter employee github username',
+        validate: (githunInput) =>{
+            if(github){
+                return true;
+            } else {
+                console.log('Enter your github username');
+                return false;
+            }
+      
+        }
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message:'Enter intern school name',
+        validate: (schoolInput) =>{
+            if(school){
+                return true;
+        } else {
+            console.log("Enter your school name");
+            return false;
+        }
+    }
+},
+{
+    type: 'confirm',
+    name: 'confirm AddEmployee',
+    message: 'Enter another employee',
+    default: false
+}
+];
+        
+
+
+
+
+
+
+
+ 
