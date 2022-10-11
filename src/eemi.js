@@ -57,18 +57,26 @@ const engineerHTML= engineer => {
     <li class="list-group-item">Name:${engineer.name}</li>
     <li class="list-group-item">Employee id: ${engineer.id}</li>
     <li class="list-group-item">Email: <a href="mail to:${engineer.email}">${engineer.email}</a></li>
-    <li class="list-group-item"><a href=""></a></li>
+    <li class="list-group-item"><a href="http://github.com/${engineer.github}">${engineer.github}</a></li>
   </ul>
 </div>
   `
 }
 
-
-
-
-
-
-
+const internHTML= intern => {
+  return `
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  Intern
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name:${intern.name}</li>
+    <li class="list-group-item">Employee id: ${intern.id}</li>
+    <li class="list-group-item">Email: <a href="mail to:${intern.email}">${intern.email}</a></li>
+    <li class="list-group-item">School Name:${intern.school}</li>
+  </ul>
+</div>
+`}
 
 
 const displayPage = empArray =>{
