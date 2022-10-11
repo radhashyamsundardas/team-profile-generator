@@ -4,6 +4,7 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const log = require('console');
+const { EventEmitter } = require('stream');
  
 
 const empArray = [];
@@ -143,11 +144,15 @@ const writeFile =fileContent => {
 
 
 newEmployee().then(empArray => {
+    return page(empArray);
+}).then(pageHtml => {
     return writeFile(pageHtml);
 })
 .catch(err => {
     console.log(err);
 });
+
+
         
 
 
