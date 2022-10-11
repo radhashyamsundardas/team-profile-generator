@@ -108,7 +108,7 @@ const askQuestions =[
 const newEmployee = () => {
     console.log(`Add Employee`);
 
-    return inquirer.Prompt(askQuestions)
+    return inquirer.prompt(askQuestions)
     .then(employeeData =>{
         let {name, id, email, github, role, school, officeNumber}= employeeData;
         let employee;
@@ -151,14 +151,3 @@ newEmployee().then(empArray => {
 .catch(err => {
     console.log(err);
 });
-
-
-        
-
-
-
-
-
-
-
- 
