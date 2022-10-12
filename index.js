@@ -9,7 +9,7 @@ const page = require('./src/page');
  
 
 const empArray = [];
-console.log(page(empArray));
+console.log(empArray);
 
 //  creating array of questions to ask 
 
@@ -133,8 +133,8 @@ const newEmployee = () => {
     )
 };
 // adding write file and attaching it to index.html
-const writeFile =fileContent => {
-    fs.writeFile('../', page(empArray), err => {
+const writeFile = (fileName, data) => {
+    fs.writeFile('./src/page.js', page, err => {
         if (err){
             console.log(err);
             return;

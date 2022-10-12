@@ -1,4 +1,4 @@
-const Manager = require("../lib/Manager")
+// const Manager = require("../lib/Manager")
 
 const page = ()=>{
 
@@ -31,9 +31,7 @@ const page = ()=>{
       `
   }
   
-  const data = [`
   
-  `]
 
   const managerHTML= manager => {
     return `
@@ -85,7 +83,7 @@ const page = ()=>{
   
   const displayPage = empArray =>{
     listEmpty = []
-    for (let i =0; i > empArray.length; i++){
+    for (let i =0; empArray.length>i; i++){
       const role = empArray[i].getRole();
       if (role === 'Manager'){
         listEmpty.push(managerHTML(empArray[i]));
@@ -94,7 +92,7 @@ const page = ()=>{
         listEmpty.push(engineerHTML(empArray[i]));
       }
       if (role === 'Intern'){
-        listEmpty.push(InternHTML(empArray[i]));
+        listEmpty.push(internHTML(empArray[i]));
       }
     }
     const mergedTeam = listEmpty.join('');
