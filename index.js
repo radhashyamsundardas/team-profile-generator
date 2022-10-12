@@ -4,10 +4,12 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const log = require('console');
-const { EventEmitter } = require('stream');
+
+const page = require('./src/page');
  
 
 const empArray = [];
+console.log(page(empArray));
 
 //  creating array of questions to ask 
 
@@ -61,7 +63,7 @@ const askQuestions =[
         type: 'input',
         name: 'officeNumber',
         message: 'Enter office number',
-        validate: (officeNumberInput) => {
+        validate: (officeNumber) => {
             if (officeNumber){
                 return true;
             } else {
@@ -74,7 +76,7 @@ const askQuestions =[
         type:'input',
         name:'github',
         message: 'Enter employee github username',
-        validate: (githunInput) =>{
+        validate: (github) =>{
             if(github){
                 return true;
             } else {
@@ -88,7 +90,7 @@ const askQuestions =[
         type: 'input',
         name: 'school',
         message:'Enter intern school name',
-        validate: (schoolInput) =>{
+        validate: (school) =>{
             if(school){
                 return true;
         } else {
@@ -132,7 +134,7 @@ const newEmployee = () => {
 };
 // adding write file and attaching it to index.html
 const writeFile =fileContent => {
-    fs.writeFile('./dist/index.html', fileContent, err => {
+    fs.writeFile('../', page(empArray), err => {
         if (err){
             console.log(err);
             return;
