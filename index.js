@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
-const log = require('console');
+
 
 const page = require('./src/page');
  
@@ -133,8 +133,8 @@ const newEmployee = () => {
     )
 };
 // adding write file and attaching it to index.html
-const writeFile = (fileName, data) => {
-    fs.writeFile('./src/page.js', page, err => {
+const writeFile = (fileName, empArray) => {
+    fs.writeFile('./src/page.js', empArray, err => {
         if (err){
             console.log(err);
             return;
