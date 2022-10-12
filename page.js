@@ -49,55 +49,55 @@ const page = ()=>{
     `
   }
   
-  const engineerHTML= engineer => {
-    return `
-    <div class="card" style="width: 18rem;">
-    <div class="card-header">
-    Engineer
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name:${engineer.name}</li>
-      <li class="list-group-item">Employee id: ${engineer.id}</li>
-      <li class="list-group-item">Email: <a href="mail to:${engineer.email}">${engineer.email}</a></li>
-      <li class="list-group-item"><a href="http://github.com/${engineer.github}">${engineer.github}</a></li>
-    </ul>
+}
+const engineerHTML= engineer => {
+  return `
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  Engineer
   </div>
-    `
-  }
-  
-  const internHTML= intern => {
-    return `
-    <div class="card" style="width: 18rem;">
-    <div class="card-header">
-    Intern
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name:${intern.name}</li>
-      <li class="list-group-item">Employee id: ${intern.id}</li>
-      <li class="list-group-item">Email: <a href="mail to:${intern.email}">${intern.email}</a></li>
-      <li class="list-group-item">School Name:${intern.school}</li>
-    </ul>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name:${engineer.name}</li>
+    <li class="list-group-item">Employee id: ${engineer.id}</li>
+    <li class="list-group-item">Email: <a href="mail to:${engineer.email}">${engineer.email}</a></li>
+    <li class="list-group-item"><a href="http://github.com/${engineer.github}">${engineer.github}</a></li>
+  </ul>
+</div>
+  `
+}
+
+const internHTML= intern => {
+  return `
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  Intern
   </div>
-  `}
-  
-  
-  const displayPage = empArray =>{
-    listEmpty = []
-    for (let i =0; empArray.length>i; i++){
-      const role = empArray[i].getRole();
-      if (role === 'Manager'){
-        listEmpty.push(managerHTML(empArray[i]));
-      }
-      if (role === 'Engineerr'){
-        listEmpty.push(engineerHTML(empArray[i]));
-      }
-      if (role === 'Intern'){
-        listEmpty.push(internHTML(empArray[i]));
-      }
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name:${intern.name}</li>
+    <li class="list-group-item">Employee id: ${intern.id}</li>
+    <li class="list-group-item">Email: <a href="mail to:${intern.email}">${intern.email}</a></li>
+    <li class="list-group-item">School Name:${intern.school}</li>
+  </ul>
+</div>
+`}
+
+
+const displayPage = empArray =>{
+  listEmpty = []
+  for (let i =0; empArray.length>i; i++){
+    const role = empArray[i].getRole();
+    if (role === 'Manager'){
+      listEmpty.push(managerHTML(empArray[i]));
     }
-    const mergedTeam = listEmpty.join('');
-    return HTMLpage(mergedTeam);
+    if (role === 'Engineerr'){
+      listEmpty.push(engineerHTML(empArray[i]));
+    }
+    if (role === 'Intern'){
+      listEmpty.push(internHTML(empArray[i]));
+    }
   }
+  const mergedTeam = listEmpty.join('');
+  return HTMLpage(mergedTeam);
 }
   
   

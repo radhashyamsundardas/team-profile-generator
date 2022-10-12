@@ -5,7 +5,7 @@ const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 
 
-const page = require('./src/page');
+const page = require('./page');
  
 
 const empArray = [];
@@ -134,7 +134,7 @@ const newEmployee = () => {
 };
 // adding write file and attaching it to index.html
 const writeFile = (fileName, empArray) => {
-    fs.writeFile('./src/page.js', empArray, err => {
+    fs.writeFile('./page.js', empArray, err => {
         if (err){
             console.log(err);
             return;
